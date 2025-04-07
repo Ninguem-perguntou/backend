@@ -14,7 +14,7 @@ services:
     ports:
       - "4002:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./jornal_backup.sql:/docker-entrypoint-initdb.d/jornal_backup.sql
 
 volumes:
-  pgdata: { }
+  pgdata: {}
