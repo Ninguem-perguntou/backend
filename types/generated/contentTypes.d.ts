@@ -410,9 +410,9 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    authors: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
+    authors: Schema.Attribute.Relation<'manyToMany', 'api::author.author'>;
     categories: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::category.category'
     >;
     comments: Schema.Attribute.Relation<'manyToMany', 'api::comment.comment'>;
@@ -465,7 +465,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    news: Schema.Attribute.Relation<'manyToOne', 'api::article.article'>;
+    news: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -496,7 +496,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    news: Schema.Attribute.Relation<'manyToOne', 'api::article.article'>;
+    news: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;

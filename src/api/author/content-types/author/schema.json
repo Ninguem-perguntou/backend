@@ -36,7 +36,7 @@
     },
     "news": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::article.article",
       "inversedBy": "authors"
     }

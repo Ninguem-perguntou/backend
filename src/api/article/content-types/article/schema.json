@@ -39,20 +39,20 @@
       "target": "api::comment.comment",
       "mappedBy": "news"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "news"
-    },
     "authors": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::author.author",
       "mappedBy": "news"
     },
     "content": {
       "type": "blocks"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "news"
     }
   }
 }
